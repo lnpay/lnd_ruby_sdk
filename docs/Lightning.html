@@ -78,7 +78,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/lnd_ruby_sdk.rb<span class="defines">,<br />
+    <dd>lib/lightning/stub.rb<span class="defines">,<br />
   lib/lightning/node.rb,<br /> lib/lightning/invoice.rb,<br /> lib/lightning/version.rb</span>
 </dd>
   </dl>
@@ -99,6 +99,8 @@
 </div><h2>Defined Under Namespace</h2>
 <p class="children">
   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Lightning/Stub.html" title="Lightning::Stub (module)">Stub</a></span>
     
   
     
@@ -129,89 +131,12 @@
 
 
 
-  
-    <h2>
-      Class Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
 
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#stub-class_method" title="stub (class method)">.<strong>stub</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-    </ul>
-  
-
-
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="stub-class_method">
-  
-    .<strong>stub</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-12
-13
-14
-15
-16
-17
-18</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/lnd_ruby_sdk.rb', line 12</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_stub'>stub</span>
-  <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Lightning</span><span class='op'>::</span><span class='const'>Stub</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1:10009</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='id identifier rubyid_credentials'>credentials</span><span class='comma'>,</span>
-    <span class='label'>interceptors:</span> <span class='lbracket'>[</span><span class='const'>MacaroonInterceptor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_macaroon'>macaroon</span><span class='rparen'>)</span><span class='rbracket'>]</span>
-  <span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 17 14:44:52 2019 by
+  Generated on Thu Apr 18 01:33:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

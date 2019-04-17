@@ -85,6 +85,11 @@
 
   
   
+  <dl>
+      <dt>Extended by:</dt>
+      <dd><span class='object_link'><a href="Stub.html" title="Lightning::Stub (module)">Stub</a></span></dd>
+  </dl>
+  
   
   
   
@@ -99,18 +104,7 @@
   
 </div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<p>Create and manage lightning network invoices</p>
 
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -128,7 +122,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-class_method" title="create (class method)">.<strong>create</strong>(**args)  &#x21d2; Hash </a>
+      <a href="#add-class_method" title="add (class method)">.<strong>add</strong>(**args)  &#x21d2; Lnrpc::AddInvoiceResponse </a>
     
 
     
@@ -153,7 +147,7 @@ request.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-class_method" title="list (class method)">.<strong>list</strong>(**args)  &#x21d2; Hash </a>
+      <a href="#list-class_method" title="list (class method)">.<strong>list</strong>(**args)  &#x21d2; Lnrpc::ListInvoiceResponse </a>
     
 
     
@@ -178,15 +172,21 @@ request.</p>
   
 
 
+  
+  
+  
+  
+  
+  
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="create-class_method">
+  <h3 class="signature first" id="add-class_method">
   
-    .<strong>create</strong>(**args)  &#x21d2; <tt>Hash</tt> 
+    .<strong>add</strong>(**args)  &#x21d2; <tt>Lnrpc::AddInvoiceResponse</tt> 
   
 
   
@@ -211,7 +211,7 @@ request.</p>
 <p>Create a new invoice</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -301,7 +301,7 @@ being used.</p>
     <li>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
+        <span class='type'>(<tt>Lnrpc::AddInvoiceResponse</tt>)</span>
       
       
       
@@ -333,14 +333,14 @@ being used.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_expiry'>expiry</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:expiry</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_memo'>memo</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:memo</span><span class='rbracket'>]</span>
 
-  <span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stub'><span class='object_link'><a href="../Lightning.html#stub-class_method" title="Lightning.stub (method)">stub</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
-  <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
+  <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -350,7 +350,7 @@ being used.</p>
       <div class="method_details ">
   <h3 class="signature " id="list-class_method">
   
-    .<strong>list</strong>(**args)  &#x21d2; <tt>Hash</tt> 
+    .<strong>list</strong>(**args)  &#x21d2; <tt>Lnrpc::ListInvoiceResponse</tt> 
   
 
   
@@ -365,8 +365,7 @@ responses, allowing users to query for specific invoices through their
 add_index. This can be done by using either the first_index_offset or
 last_index_offset fields included in the response as the index_offset of
 the next request. By default, the first 100 invoices created will be
-returned.  Backwards pagination is also supported through the Reversed
-flag.</p>
+returned. Backwards pagination is also supported through the Reversed flag.</p>
 
 
   </div>
@@ -391,7 +390,7 @@ flag.</p>
     <li>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
+        <span class='type'>(<tt>Lnrpc::ListInvoiceResponse</tt>)</span>
       
       
       
@@ -410,19 +409,35 @@ flag.</p>
       <pre class="lines">
 
 
-46
 47
 48
 49
-50</pre>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stub'><span class='object_link'><a href="../Lightning.html#stub-class_method" title="Lightning.stub (method)">stub</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list_invoices'>list_invoices</span><span class='lparen'>(</span>
-    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>ListInvoiceResponse</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
+  <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_index_offset'>index_offset</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:index_offset</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_pending_only'>pending_only</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:pending_only</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_reversed'>reversed</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:reversed</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_list_invoices'>list_invoices</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>ListInvoiceRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='label'>num_max_invoices:</span> <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span><span class='comma'>,</span> <span class='label'>index_offset:</span> <span class='id identifier rubyid_index_offset'>index_offset</span><span class='comma'>,</span>
+      <span class='label'>pending_only:</span> <span class='id identifier rubyid_pending_only'>pending_only</span><span class='comma'>,</span> <span class='label'>reversed:</span> <span class='id identifier rubyid_reversed'>reversed</span>
+    <span class='rparen'>)</span>
+  <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -434,7 +449,7 @@ flag.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 17 14:44:52 2019 by
+  Generated on Thu Apr 18 01:33:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

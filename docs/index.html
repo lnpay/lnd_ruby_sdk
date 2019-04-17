@@ -106,8 +106,16 @@ Lightning::Node.info
 <p>Attempts to add a new invoice to the invoice database and returns a payment request.</p>
 
 <p><code>ruby
-Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
+Lightning::Invoice.add(amount: 500, desc: '1x Cappuccino')
 =&gt; {:r_hash=&gt;"\x88...1E&lt;U", :payment_request=&gt;"lnbc...mcpampmwe", :add_index=&gt;31}
+</code></p>
+
+<h3 id="list-invoices">List invoices</h3>
+<p>Return a list of all the invoices currently stored within the database.</p>
+
+<p><code>ruby
+Lightning::Invoice.list(num_max_invoices: 2)
+=&gt; {:invoices=&gt;[{:memo=&gt;"itworks", ..., :state=&gt;:OPEN}, ...], :last_index_offset=&gt;2, :first_index_offset=&gt;1}
 </code></p>
 
 <h2 id="development">Development</h2>
@@ -126,7 +134,7 @@ Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
 </div></div>
 
       <div id="footer">
-  Generated on Wed Apr 17 14:44:51 2019 by
+  Generated on Thu Apr 18 01:33:09 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

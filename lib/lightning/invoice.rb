@@ -1,7 +1,7 @@
 module Lightning
-  # Create and manage lightning network invoices
   class Invoice
     class << self
+      include Lightning::Stub
       # Attempts to add a new invoice to the invoice
       # database and returns a payment request.
       #
@@ -18,17 +18,17 @@ module Lightning
       #   payment request if the description_hash field is not being used.
       #
       # @example Create a new invoice
-      #   Lightning::Invoice.create(value: 500, memo: '1x Cappuccino')
+      #   Lightning::Invoice.add(value: 500, memo: '1x Cappuccino')
       #
-      # @return [Hash] response
-      def create(**args)
+      # @return [Lnrpc::AddInvoiceResponse] response
+      def add(**args)
         value = args[:value]
         expiry = args[:expiry]
         memo = args[:memo]
 
-        Lightning.stub.add_invoice(
+        stub.add_invoice(
           Lnrpc::Invoice.new(value: value, expiry: expiry, memo: memo)
-        ).to_hash
+        )
       end
 
       # Returns a list of all the invoices currently stored within
@@ -43,19 +43,19 @@ module Lightning
       # @example List all invoices
       #   Lightning::Invoice.list
       #
-      # @return [Hash] response
+      # @return [Lnrpc::ListInvoiceResponse] response
       def list(**args)
         num_max_invoices = args[:num_max_invoices]
         index_offset = args[:index_offset]
         pending_only = args[:pending_only]
         reversed = args[:reversed]
 
-        Lightning.stub.list_invoices(
+        stub.list_invoices(
           Lnrpc::ListInvoiceRequest.new(
             num_max_invoices: num_max_invoices, index_offset: index_offset,
             pending_only: pending_only, reversed: reversed
           )
-        ).to_hash
+        )
       end
     end
   end

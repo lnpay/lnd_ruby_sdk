@@ -47,7 +47,7 @@ Lightning::Node.info
 Attempts to add a new invoice to the invoice database and returns a payment request.
 
 ```ruby
-Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
+Lightning::Invoice.add(amount: 500, desc: '1x Cappuccino')
 => {:r_hash=>"\x88...1E<U", :payment_request=>"lnbc...mcpampmwe", :add_index=>31}
 ```
 

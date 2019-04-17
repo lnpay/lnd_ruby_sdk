@@ -1,7 +1,7 @@
 module Lightning
-  # Class for managing invoice functions like add, list, lookup and subscribe.
   class Node
     class << self
+      include Lightning::Stub
       # Returns general information concerning the lightning node
       # including it's identity pubkey, alias, the chains it is connected
       # to, and information concerning the number of open+pending channels.
@@ -9,9 +9,9 @@ module Lightning
       # @example Receive node info
       #   Lightning::Node.info #=> {:identity_pubkey=>... }
       #
-      # @return [Hash] the response
+      # @return [Lnrpc::GetInfoResponse] the response
       def info
-        Lightning.stub.get_info(Lnrpc::GetInfoRequest.new).to_hash
+        stub.get_info(Lnrpc::GetInfoRequest.new)
       end
     end
   end
