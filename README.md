@@ -8,7 +8,7 @@ This is a SDK for ruby applications that can help you communicate with your Ligh
 
 This SDK requires that you're running a Lightning Node on the same host as the script is running. It also requires that you are using the default paths for your macaroon file `~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon` and certificate `~/.lnd/tls.cert`. Custom paths & configurations will be added in a future version. 
 
-This SDK **does not** work with other servers than [LND](https://github.com/lightningnetwork/lnd). If your nodes is running on [c-lightning](https://github.com/ElementsProject/lightning), it wont work.
+This SDK **does not** work with other servers than [LND](https://github.com/lightningnetwork/lnd). If your node is running on [c-lightning](https://github.com/ElementsProject/lightning), it wont work.
 
 ## Installation
 
@@ -29,6 +29,9 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+## Documentation
+SDK documentation can be found at [https://lnpay.github.io/lnd_ruby_sdk](https://lnpay.github.io/lnd_ruby_sdk)
 
 ## Examples
 
