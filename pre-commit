@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Regenerates documentaion and adds it to the commit
+#
+# This file must live in .git/hooks/pre-commit and be executable
+#
+# Setup:
+# 
+#  cp pre-commit .git/hooks/
+#  chmod +x .git/hooks/pre-commit
+
+echo
+echo "Regenerating Documentation"
+echo
+gem list | grep yard || gem install yard
+yard -o docs --template-path ./.customtemplates
+echo
+echo
+echo "Regeneration complete"
+echo
+echo "Adding updated docs to commit"
+echo
+git add -- docs .yardoc
+git add -u -- docs .yardoc
+echo

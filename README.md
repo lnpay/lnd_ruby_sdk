@@ -20,7 +20,7 @@ gem 'lnd_ruby_sdk'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
