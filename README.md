@@ -20,11 +20,11 @@ gem 'lnd_ruby_sdk'
 
 And then execute:
 
-    $ bundle install
+  $ bundle install
 
 Or install it yourself as:
 
-    $ gem install lnd_ruby_sdk
+  $ gem install lnd_ruby_sdk
 
 ## Usage
 
@@ -37,16 +37,26 @@ SDK documentation can be found at [https://lnpay.github.io/lnd_ruby_sdk](https:/
 
 ### Get node information
 Returns general information concerning the lightning node including it's identity pubkey, alias, the chains it is connected to, and information concerning the number of open+pending channels.
+
 ```ruby
-Lightning::Node.info 
+Lightning::Node.info
 => {:identity_pubkey=>"031e...9f14", :alias=>"node-alias", :num_pending_channels=>0, :num_active_channels=>0, :num_peers=>3, :block_height=>571960, :block_hash=>"00000...e2b7101", :synced_to_chain=>true, :testnet=>false, :uris=>[], :best_header_timestamp=>1555464518, :version=>"0.6.0-beta commit=v0.6-beta-rc..44ad", :num_inactive_channels=>0, :chains=>[{:chain=>"bitcoin", :network=>"mainnet"}]}
 ```
 
 ### Create an invoice (and payment request)
 Attempts to add a new invoice to the invoice database and returns a payment request.
+
 ```ruby
-Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino') 
+Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
 => {:r_hash=>"\x88...1E<U", :payment_request=>"lnbc...mcpampmwe", :add_index=>31}
+```
+
+### List invoices
+Return a list of all the invoices currently stored within the database. 
+
+```ruby
+Lightning::Invoice.list(num_max_invoices: 2)
+=> {:invoices=>[{:memo=>"itworks", ..., :state=>:OPEN}, ...], :last_index_offset=>2, :first_index_offset=>1}
 ```
 
 ## Development

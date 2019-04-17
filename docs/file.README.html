@@ -79,13 +79,11 @@ gem 'lnd_ruby_sdk'
 
 <p>And then execute:</p>
 
-<pre class="code ruby"><code class="ruby">$ bundle install
-</code></pre>
+<p>$ bundle install</p>
 
 <p>Or install it yourself as:</p>
 
-<pre class="code ruby"><code class="ruby">$ gem install lnd_ruby_sdk
-</code></pre>
+<p>$ gem install lnd_ruby_sdk</p>
 
 <h2 id="usage">Usage</h2>
 
@@ -97,16 +95,18 @@ gem 'lnd_ruby_sdk'
 <h2 id="examples">Examples</h2>
 
 <h3 id="get-node-information">Get node information</h3>
-<p>Returns general information concerning the lightning node including it’s identity pubkey, alias, the chains it is connected to, and information concerning the number of open+pending channels.
-<code>ruby
-Lightning::Node.info 
+<p>Returns general information concerning the lightning node including it’s identity pubkey, alias, the chains it is connected to, and information concerning the number of open+pending channels.</p>
+
+<p><code>ruby
+Lightning::Node.info
 =&gt; {:identity_pubkey=&gt;"031e...9f14", :alias=&gt;"node-alias", :num_pending_channels=&gt;0, :num_active_channels=&gt;0, :num_peers=&gt;3, :block_height=&gt;571960, :block_hash=&gt;"00000...e2b7101", :synced_to_chain=&gt;true, :testnet=&gt;false, :uris=&gt;[], :best_header_timestamp=&gt;1555464518, :version=&gt;"0.6.0-beta commit=v0.6-beta-rc..44ad", :num_inactive_channels=&gt;0, :chains=&gt;[{:chain=&gt;"bitcoin", :network=&gt;"mainnet"}]}
 </code></p>
 
 <h3 id="create-an-invoice-and-payment-request">Create an invoice (and payment request)</h3>
-<p>Attempts to add a new invoice to the invoice database and returns a payment request.
-<code>ruby
-Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino') 
+<p>Attempts to add a new invoice to the invoice database and returns a payment request.</p>
+
+<p><code>ruby
+Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
 =&gt; {:r_hash=&gt;"\x88...1E&lt;U", :payment_request=&gt;"lnbc...mcpampmwe", :add_index=&gt;31}
 </code></p>
 
@@ -126,7 +126,7 @@ Lightning::Invoice.create(amount: 500, desc: '1x Cappuccino')
 </div></div>
 
       <div id="footer">
-  Generated on Wed Apr 17 14:21:30 2019 by
+  Generated on Wed Apr 17 14:44:51 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>
