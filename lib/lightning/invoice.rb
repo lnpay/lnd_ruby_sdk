@@ -26,7 +26,7 @@ module Lightning
         expiry = args[:expiry]
         memo = args[:memo]
 
-        stub.add_invoice(
+        return_res stub.add_invoice(
           Lnrpc::Invoice.new(value: value, expiry: expiry, memo: memo)
         )
       end
@@ -50,7 +50,7 @@ module Lightning
         pending_only = args[:pending_only]
         reversed = args[:reversed]
 
-        stub.list_invoices(
+        return_res stub.list_invoices(
           Lnrpc::ListInvoiceRequest.new(
             num_max_invoices: num_max_invoices, index_offset: index_offset,
             pending_only: pending_only, reversed: reversed

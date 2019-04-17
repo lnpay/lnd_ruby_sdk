@@ -11,7 +11,7 @@ module Lightning
       #
       # @return [Lnrpc::GetInfoResponse] the response
       def info
-        stub.get_info(Lnrpc::GetInfoRequest.new)
+        return_res stub.get_info(Lnrpc::GetInfoRequest.new)
       end
     end
   end

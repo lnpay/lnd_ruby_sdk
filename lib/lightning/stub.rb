@@ -26,5 +26,9 @@ module Lightning
       certificate = File.read(File.expand_path('~/.lnd/tls.cert'))
       GRPC::Core::ChannelCredentials.new(certificate)
     end
+
+    def return_res(response)
+      response
+    end
   end
 end
