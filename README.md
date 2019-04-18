@@ -52,6 +52,66 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 A good way to start would be by running `rake spec` to check out the list of `Pending` tests.
 
+### Progress
+
+**Method**|**Added to SDK version**
+-----|-----
+genseed| 
+initwallet| 
+unlockwallet| 
+changepassword| 
+walletbalance| 
+channelbalance| 
+gettransactions| 
+estimatefee| 
+sendcoins| 
+listunspent| 
+subscribetransactions| 
+sendmany| 
+newaddress| 
+signmessage| 
+verifymessage| 
+connectpeer| 
+disconnectpeer| 
+listpeers| 
+getinfo|0.1.0
+pendingchannels| 
+listchannels| 
+subscribechannelevents| 
+closedchannels| 
+openchannelsync| 
+openchannel| 
+closechannel| 
+abandonchannel| 
+sendpayment| 
+sendpaymentsync| 
+sendtoroute| 
+sendtoroutesync| 
+addinvoice|0.1.0
+listinvoices|0.1.0
+lookupinvoice| 
+subscribeinvoices| 
+decodepayreq|0.1.0
+listpayments| 
+deleteallpayments| 
+describegraph| 
+getchaninfo| 
+getnodeinfo| 
+queryroutes| 
+getnetworkinfo| 
+stopdaemon| 
+subscribechannelgraph| 
+debuglevel| 
+feereport| 
+updatechannelpolicy| 
+forwardinghistory| 
+exportchannelbackup| 
+exportallchannelbackups| 
+verifychanbackup| 
+restorechannelbackups| 
+subscribechannelbackups| 
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/lnpay/lnd_ruby_sdk.
