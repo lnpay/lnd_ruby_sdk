@@ -1,3 +1,3 @@
-RSpec.describe Lightning::Node do
+RSpec.describe 'Node' do
   it 'returns node info'
 end
