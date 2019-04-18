@@ -492,6 +492,101 @@ next listinvoices request.</p>
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_listinvoices'>listinvoices</span></code></pre>
     
   </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>**args</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:num_max_invoices</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>100</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>The max number of invoices to return in the response to this query.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:index_offset</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>0</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>The index of an invoice that will be used as either the start or end of a
+query to determine which invoices should be returned in the response.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:pending_only</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>If set, only unsettled invoices will be returned in the response.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:reversed</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>If set, the invoices returned will result from seeking backwards from the
+specified index offset. This can be used to paginate backwards.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -518,22 +613,22 @@ next listinvoices request.</p>
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</pre>
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_listinvoices'>listinvoices</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
@@ -558,7 +653,7 @@ next listinvoices request.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 03:17:59 2019 by
+  Generated on Thu Apr 18 03:25:04 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

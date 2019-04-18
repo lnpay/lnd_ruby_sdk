@@ -46,6 +46,20 @@ module Lightning
     # first_offset_index of the response can be used as the index_offset of
     # the next listinvoices request.
     #
+    # @option args [Integer] :num_max_invoices (100)
+    #   The max number of invoices to return in the response to this query.
+    #
+    # @option args [Integer] :index_offset (0)
+    #   The index of an invoice that will be used as either the start or end of
+    #   a query to determine which invoices should be returned in the response.
+    #
+    # @option args [Boolean] :pending_only (false)
+    #   If set, only unsettled invoices will be returned in the response.
+    #
+    # @option args [Boolean] :reversed (false)
+    #   If set, the invoices returned will result from seeking backwards from
+    #   the specified index offset. This can be used to paginate backwards.
+    #
     # @example List all invoices
     #   Lightning.listinvoices
     #
