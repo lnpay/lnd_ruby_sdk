@@ -38,7 +38,7 @@ module Lightning
     # @return [Binary]
     def macaroon
       macaroon_binary = File.read(
-        File.expand_path('~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon')
+        File.expand_path(config[:macaroon_path])
       )
 
       macaroon_binary.each_byte.map { |b| b.to_s(16).rjust(2, '0') }.join
@@ -55,7 +55,7 @@ module Lightning
       ENV['GRPC_SSL_CIPHER_SUITES'] =
         ENV['GRPC_SSL_CIPHER_SUITES'] || 'HIGH+ECDSA'
 
-      certificate = File.read(File.expand_path('~/.lnd/tls.cert'))
+      certificate = File.read(File.expand_path(config[:certificate_path]))
       GRPC::Core::ChannelCredentials.new(certificate)
     end
   end
