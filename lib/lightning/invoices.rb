@@ -21,7 +21,7 @@ module Lightning
     # @example Create a new invoice
     #   Lightning.addinvoice(amt: 500, memo: '1x Cappuccino')
     #
-    # @return [Lnrpc::AddInvoiceResponse] response
+    # @return [Lnrpc::AddInvoiceResponse]
     def addinvoice(**args)
       amt = args[:amt]
       expiry = args[:expiry]
@@ -30,6 +30,21 @@ module Lightning
       stub.add_invoice(
         Lnrpc::Invoice.new(value: amt, expiry: expiry, memo: memo)
       )
+    end
+
+    # DecodePayReq takes an encoded payment request string and attempts to
+    # decode it, returning a full description of the conditions encoded within
+    # the payment request.
+    #
+    # @param [String] pay_req The payment request string to be decoded
+    #
+    # @example Decode a payment request
+    #   Lightning.decodepayreq("lnbc5u1pwt0...qxht38d")
+    #
+    # @return [Lnrpc::PayReq]
+    def decodepayreq(pay_req)
+      opts = { pay_req: pay_req }
+      stub.decode_pay_req(Lnrpc::PayReqString.new(opts))
     end
 
     # This command enables the retrieval of all invoices currently stored
@@ -63,7 +78,7 @@ module Lightning
     # @example List all invoices
     #   Lightning.listinvoices
     #
-    # @return [Lnrpc::ListInvoiceResponse] response
+    # @return [Lnrpc::ListInvoiceResponse]
     def listinvoices(**args)
       num_max_invoices = args[:num_max_invoices]
       index_offset = args[:index_offset]
@@ -76,21 +91,6 @@ module Lightning
           pending_only: pending_only, reversed: reversed
         )
       )
-    end
-
-    # DecodePayReq takes an encoded payment request string and attempts to
-    # decode it, returning a full description of the conditions encoded within'
-    # the payment request.
-    #
-    # @param [String] pay_req The payment request string to be decoded
-    #
-    # @example Decode a payment request
-    #   Lightning.decodepayreq("lnbc5u1pwt0...qxht38d")
-    #
-    # @return [Lnrpc::PayReq]
-    def decodepayreq(pay_req)
-      opts = { pay_req: pay_req }
-      stub.decode_pay_req(Lnrpc::PayReqString.new(opts))
     end
   end
 end

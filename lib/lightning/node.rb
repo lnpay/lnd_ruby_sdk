@@ -8,7 +8,7 @@ module Lightning
     # @example Receive node info
     #   Lightning.getinfo
     #
-    # @return [Lnrpc::GetInfoResponse] the response
+    # @return [Lnrpc::GetInfoResponse]
     def getinfo
       stub.get_info(Lnrpc::GetInfoRequest.new)
     end
