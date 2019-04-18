@@ -78,8 +78,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/lightning/node.rb<span class="defines">,<br />
-  lib/lightning/stub.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/invoices.rb</span>
+    <dd>lib/lnd_ruby_sdk.rb<span class="defines">,<br />
+  lib/lightning/node.rb,<br /> lib/lightning/stub.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/invoices.rb</span>
 </dd>
   </dl>
   
@@ -107,7 +107,18 @@ node</p>
     <dl class="constants">
       
         <dt id="VERSION-constant" class="">VERSION =
-          
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Current SDK version number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
@@ -116,6 +127,38 @@ node</p>
 
 
 
+
+  <h2>Class Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-class_method" title="config (class method)">.<strong>config</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute config.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -147,6 +190,32 @@ node</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Add a new invoice, expressing intent for a future payment.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decodepayreq-class_method" title="decodepayreq (class method)">.<strong>decodepayreq</strong>(pay_req)  &#x21d2; Lnrpc::PayReq </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Decodepayreq takes an encoded payment request string and attempts to decode
+it, returning a full description of the conditions encoded within the
+payment request.</p>
 </div></span>
   
 </li>
@@ -196,8 +265,8 @@ information concerning the number of open+pending channels.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>This command enables the retrieval of all invoices currently stored within
-the database.</p>
+<p>Listinvoices the retrieval of all invoices currently stored within the
+database.</p>
 </div></span>
   
 </li>
@@ -206,6 +275,54 @@ the database.</p>
     </ul>
   
 
+
+  <div id="class_attr_details" class="attr_details">
+    <h2>Class Attribute Details</h2>
+    
+      
+      <span id="config=-class_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="config-class_method">
+  
+    .<strong>config</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute config</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lnd_ruby_sdk.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
+  <span class='ivar'>@config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -336,11 +453,6 @@ being used.</p>
       
       
       
-        &mdash;
-        <div class='inline'>
-<p>response</p>
-</div>
-      
     </li>
   
 </ul>
@@ -372,6 +484,96 @@ being used.</p>
   <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_amt'>amt</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="decodepayreq-class_method">
+  
+    .<strong>decodepayreq</strong>(pay_req)  &#x21d2; <tt>Lnrpc::PayReq</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Decodepayreq takes an encoded payment request string and attempts to decode
+it, returning a full description of the conditions encoded within the
+payment request.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Decode a payment request</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_decodepayreq'>decodepayreq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>lnbc5u1pwt0...qxht38d</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>pay_req</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The payment request string to be decoded</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::PayReq</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_decodepayreq'>decodepayreq</span><span class='lparen'>(</span><span class='id identifier rubyid_pay_req'>pay_req</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>pay_req:</span> <span class='id identifier rubyid_pay_req'>pay_req</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_decode_pay_req'>decode_pay_req</span><span class='lparen'>(</span><span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>PayReqString</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -421,11 +623,6 @@ information concerning the number of open+pending channels.</p>
       
       
       
-        &mdash;
-        <div class='inline'>
-<p>the response</p>
-</div>
-      
     </li>
   
 </ul>
@@ -463,18 +660,18 @@ information concerning the number of open+pending channels.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>This command enables the retrieval of all invoices currently stored within
-the database. It has full support for paginationed responses, allowing
-users to query for specific invoices through their add_index. This can be
-done by using either the first_index_offset or last_index_offset fields
-included in the response as the index_offset of the next request. The
-reversed flag is set by default in order to paginate backwards. If you wish
-to paginate forwards, you must explicitly set the flag to false. If none of
-the parameters are specified, then the last 100 invoices will be returned.
-For example: if you have 200 invoices, “listinvoices” will return the last
-100 created. If you wish to retrieve the previous 100, the
-first_offset_index of the response can be used as the index_offset of the
-next listinvoices request.</p>
+<p>Listinvoices the retrieval of all invoices currently stored within the
+database. It has full support for paginationed responses, allowing users to
+query for specific invoices through their add_index. This can be done by
+using either the first_index_offset or last_index_offset fields included in
+the response as the index_offset of the next request. The reversed flag is
+set by default in order to paginate backwards. If you wish to paginate
+forwards, you must explicitly set the flag to false. If none of the
+parameters are specified, then the last 100 invoices will be returned. For
+example: if you have 200 invoices, “listinvoices” will return the last 100
+created. If you wish to retrieve the previous 100, the first_offset_index
+of the response can be used as the index_offset of the next listinvoices
+request.</p>
 
 
   </div>
@@ -598,11 +795,6 @@ specified index offset. This can be used to paginate backwards.</p>
       
       
       
-        &mdash;
-        <div class='inline'>
-<p>response</p>
-</div>
-      
     </li>
   
 </ul>
@@ -613,22 +805,22 @@ specified index offset. This can be used to paginate backwards.</p>
       <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79</pre>
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_listinvoices'>listinvoices</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
@@ -653,7 +845,7 @@ specified index offset. This can be used to paginate backwards.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 03:25:04 2019 by
+  Generated on Thu Apr 18 17:10:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

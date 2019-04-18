@@ -32,7 +32,7 @@ module Lightning
       )
     end
 
-    # DecodePayReq takes an encoded payment request string and attempts to
+    # Decodepayreq takes an encoded payment request string and attempts to
     # decode it, returning a full description of the conditions encoded within
     # the payment request.
     #
@@ -47,7 +47,7 @@ module Lightning
       stub.decode_pay_req(Lnrpc::PayReqString.new(opts))
     end
 
-    # This command enables the retrieval of all invoices currently stored
+    # Listinvoices the retrieval of all invoices currently stored
     # within the database. It has full support for paginationed responses,
     # allowing users to query for specific invoices through their add_index.
     # This can be done by using either the first_index_offset or

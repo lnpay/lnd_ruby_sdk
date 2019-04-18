@@ -15,7 +15,7 @@ This SDK **does not** work with other servers than [LND](https://github.com/ligh
 Add this line to your application's Gemfile:
 
 ```
-gem 'lnd_ruby_sdk'
+gem 'lnd_ruby_sdk', '~> 0.1.0'
 ```
 
 And then execute:

@@ -5,8 +5,8 @@ require 'lightning/version'
 Gem::Specification.new do |spec|
   spec.name          = 'lnd_ruby_sdk'
   spec.version       = Lightning::VERSION
-  spec.authors       = ['Rasmus']
-  spec.email         = ['rk@youngmedia.se']
+  spec.authors       = ['lnpay']
+  spec.email         = ['rubygems@lnpay.io']
 
   spec.summary       = 'A SDK for communicating with LND\'s gRPC in Ruby'
   spec.homepage      = 'https://github.com/lnpay'
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   #spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib', 'vendor']
 
-  spec.add_dependency 'grpc'
+  spec.add_dependency 'grpc', '~> 1.20', '>= 1.20.0'
 
   # use "yard" to build full HTML docs.
   spec.metadata["yard.run"] = "yri"
@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.67.2'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.1.0'
-  spec.add_development_dependency "yard", ">= 0.9.11"
+  spec.add_development_dependency 'rubocop-performance', '~> 1.1', '>= 1.1.0'
+  spec.add_development_dependency 'yard', '~> 0.9', '>= 0.9.11'
 end
