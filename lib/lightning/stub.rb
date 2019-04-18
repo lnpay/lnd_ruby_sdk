@@ -19,8 +19,10 @@ module Lightning
     # @since 0.1.0
     # @return [Lnrpc::Lightning::Stub]
     def stub
+      config = Lightning.configuration
+
       Lnrpc::Lightning::Stub.new(
-        '127.0.0.1:10009',
+        "#{config.grcp_host}:#{config.grcp_port}",
         credentials,
         interceptors: [MacaroonInterceptor.new(macaroon)]
       )
@@ -37,8 +39,10 @@ module Lightning
     # @since 0.1.0
     # @return [Binary]
     def macaroon
+      config = Lightning.configuration
+
       macaroon_binary = File.read(
-        File.expand_path(config[:macaroon_path])
+        File.expand_path(config.macaroon_path)
       )
 
       macaroon_binary.each_byte.map { |b| b.to_s(16).rjust(2, '0') }.join
@@ -52,10 +56,12 @@ module Lightning
     # @since 0.1.0
     # @return [GRPC::Core::ChannelCredentials]
     def credentials
+      config = Lightning.configuration
+
       ENV['GRPC_SSL_CIPHER_SUITES'] =
         ENV['GRPC_SSL_CIPHER_SUITES'] || 'HIGH+ECDSA'
 
-      certificate = File.read(File.expand_path(config[:certificate_path]))
+      certificate = File.read(File.expand_path(config.certificate_path))
       GRPC::Core::ChannelCredentials.new(certificate)
     end
   end

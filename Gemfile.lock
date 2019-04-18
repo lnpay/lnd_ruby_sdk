@@ -1,19 +1,19 @@
 PATH
   remote: .
   specs:
-    lnd_ruby_sdk (0.1.0)
-      grpc
+    lnd_ruby_sdk (0.1.1)
+      grpc (~> 1.20, >= 1.20.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
     diff-lcs (1.3)
-    google-protobuf (3.7.1)
+    google-protobuf (3.7.1-universal-darwin)
     googleapis-common-protos-types (1.0.4)
       google-protobuf (~> 3.0)
-    grpc (1.19.0)
-      google-protobuf (~> 3.1)
+    grpc (1.20.0)
+      google-protobuf (~> 3.7)
       googleapis-common-protos-types (~> 1.0.0)
     jaro_winkler (1.5.2)
     parallel (1.17.0)
@@ -58,8 +58,8 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.0)
   rubocop (~> 0.67.2)
-  rubocop-performance (~> 1.1.0)
-  yard (>= 0.9.11)
+  rubocop-performance (~> 1.1, >= 1.1.0)
+  yard (~> 0.9, >= 0.9.11)
 
 BUNDLED WITH
    1.16.1

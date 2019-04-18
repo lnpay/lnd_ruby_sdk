@@ -4,5 +4,6 @@ AllCops:
     - lnd_ruby_sdk.gemspec
     - vendor/*
     - spec/*
+    - examples/*
 Naming/AccessorMethodName:
   Enabled: false

@@ -78,8 +78,8 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/lnd_ruby_sdk.rb<span class="defines">,<br />
-  lib/lightning/node.rb,<br /> lib/lightning/stub.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/invoices.rb</span>
+    <dd>lib/lightning/node.rb<span class="defines">,<br />
+  lib/lightning/stub.rb,<br /> lib/lightning/config.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/invoices.rb</span>
 </dd>
   </dl>
   
@@ -97,7 +97,17 @@ node</p>
 <div class="tags">
   
 
-</div>
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Lightning/Configuration.html" title="Lightning::Configuration (class)">Configuration</a></span>
+    
+  
+</p>
+
   
     <h2>
       Constant Summary
@@ -120,7 +130,7 @@ node</p>
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.1</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -134,7 +144,7 @@ node</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#config-class_method" title="config (class method)">.<strong>config</strong>  &#x21d2; Object </a>
+      <a href="#configuration-class_method" title="configuration (class method)">.<strong>configuration</strong>  &#x21d2; Object </a>
     
 
     
@@ -152,7 +162,7 @@ node</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute config.</p>
+<p>Returns the value of attribute configuration.</p>
 </div></span>
   
 </li>
@@ -191,6 +201,28 @@ node</p>
     <span class="summary_desc"><div class='inline'>
 <p>Add a new invoice, expressing intent for a future payment.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configure-class_method" title="configure (class method)">.<strong>configure</strong> {|configuration| ... } &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -280,11 +312,11 @@ database.</p>
     <h2>Class Attribute Details</h2>
     
       
-      <span id="config=-class_method"></span>
+      <span id="configuration=-class_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="config-class_method">
+  <h3 class="signature first" id="configuration-class_method">
   
-    .<strong>config</strong>  &#x21d2; <tt>Object</tt> 
+    .<strong>configuration</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -293,7 +325,7 @@ database.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute config</p>
+<p>Returns the value of attribute configuration</p>
 
 
   </div>
@@ -307,15 +339,15 @@ database.</p>
       <pre class="lines">
 
 
-15
-16
-17</pre>
+4
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lnd_ruby_sdk.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/config.rb', line 4</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
-  <span class='ivar'>@config</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='ivar'>@configuration</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -484,6 +516,60 @@ being used.</p>
   <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_amt'>amt</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configure-class_method">
+  
+    .<strong>configure</strong> {|configuration| ... } &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#configuration-class_method" title="Lightning.configuration (method)">configuration</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/config.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Lightning/Configuration.html" title="Lightning::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_configuration'>configuration</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -845,7 +931,7 @@ specified index offset. This can be used to paginate backwards.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 17:10:12 2019 by
+  Generated on Thu Apr 18 17:58:37 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>
