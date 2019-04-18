@@ -77,5 +77,20 @@ module Lightning
         )
       )
     end
+
+    # DecodePayReq takes an encoded payment request string and attempts to
+    # decode it, returning a full description of the conditions encoded within'
+    # the payment request.
+    #
+    # @param [String] pay_req The payment request string to be decoded
+    #
+    # @example Decode a payment request
+    #   Lightning.decodepayreq("lnbc5u1pwt0...qxht38d")
+    #
+    # @return [Lnrpc::PayReq]
+    def decodepayreq(pay_req)
+      opts = { pay_req: pay_req }
+      stub.decode_pay_req(Lnrpc::PayReqString.new(opts))
+    end
   end
 end
