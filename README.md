@@ -35,7 +35,7 @@ $ gem install lnd_ruby_sdk
 TODO: Write usage instructions here
 
 ## Documentation
-SDK documentation and all available commands can be found at [file:///Users/rasmus/Documents/github-repos/lnpay/lnd_ruby_sdk/docs/Lightning.html](file:///Users/rasmus/Documents/github-repos/lnpay/lnd_ruby_sdk/docs/Lightning.html)
+SDK documentation and all available commands can be found at [https://lnpay.github.io/lnd_ruby_sdk/Lightning.html](https://lnpay.github.io/lnd_ruby_sdk/Lightning.html)
 
 ## Development
 
