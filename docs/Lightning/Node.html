@@ -85,11 +85,6 @@
 
   
   
-  <dl>
-      <dt>Extended by:</dt>
-      <dd><span class='object_link'><a href="Stub.html" title="Lightning::Stub (module)">Stub</a></span></dd>
-  </dl>
-  
   
   
   
@@ -99,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/lightning/node.rb</dd>
+    <dd>lib/lightning/invoice.rb</dd>
   </dl>
   
 </div>
@@ -111,134 +106,12 @@
 
 
 
-  
-    <h2>
-      Class Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
 
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#info-class_method" title="info (class method)">.<strong>info</strong>  &#x21d2; Lnrpc::GetInfoResponse </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns general information concerning the lightning node including
-it&#39;s identity pubkey, alias, the chains it is connected to, and
-information concerning the number of open+pending channels.</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-
-
-  
-  
-  
-  
-  
-  
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="info-class_method">
-  
-    .<strong>info</strong>  &#x21d2; <tt>Lnrpc::GetInfoResponse</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns general information concerning the lightning node including
-it&#39;s identity pubkey, alias, the chains it is connected to, and
-information concerning the number of open+pending channels.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-        <p class="example_title"><div class='inline'>
-<p>Receive node info</p>
-</div></p>
-      
-      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='comment'>#=&gt; {:identity_pubkey=&gt;... }</span></code></pre>
-    
-  </div>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Lnrpc::GetInfoResponse</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the response</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-13
-14
-15</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/node.rb', line 13</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_info'>info</span>
-  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_get_info'>get_info</span><span class='lparen'>(</span><span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>GetInfoRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 01:33:10 2019 by
+  Generated on Thu Apr 18 02:25:12 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

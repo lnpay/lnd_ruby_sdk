@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../_index.html">Index (I)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span>
+    <span class='title'><span class='object_link'><a href="../Lightning.html" title="Lightning (class)">Lightning</a></span></span>
      &raquo; 
     <span class="title">Invoice</span>
   
@@ -84,11 +84,6 @@
   
 
   
-  
-  <dl>
-      <dt>Extended by:</dt>
-      <dd><span class='object_link'><a href="Stub.html" title="Lightning::Stub (module)">Stub</a></span></dd>
-  </dl>
   
   
   
@@ -172,12 +167,6 @@ request.</p>
   
 
 
-  
-  
-  
-  
-  
-  
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -211,7 +200,7 @@ request.</p>
 <p>Create a new invoice</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (class)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -320,6 +309,7 @@ being used.</p>
       <pre class="lines">
 
 
+23
 24
 25
 26
@@ -327,18 +317,17 @@ being used.</p>
 28
 29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_expiry'>expiry</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:expiry</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_memo'>memo</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:memo</span><span class='rbracket'>]</span>
 
-  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_return_res'>return_res</span> <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -380,7 +369,7 @@ returned. Backwards pagination is also supported through the Reversed flag.</p>
 <p>List all invoices</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (module)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span></code></pre>
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="../Lightning.html" title="Lightning (class)">Lightning</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Lightning::Invoice (class)">Invoice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span></code></pre>
     
   </div>
 
@@ -409,6 +398,7 @@ returned. Backwards pagination is also supported through the Reversed flag.</p>
       <pre class="lines">
 
 
+46
 47
 48
 49
@@ -420,11 +410,10 @@ returned. Backwards pagination is also supported through the Reversed flag.</p>
 55
 56
 57
-58
-59</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoice.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
@@ -432,7 +421,7 @@ returned. Backwards pagination is also supported through the Reversed flag.</p>
   <span class='id identifier rubyid_pending_only'>pending_only</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:pending_only</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_reversed'>reversed</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:reversed</span><span class='rbracket'>]</span>
 
-  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_list_invoices'>list_invoices</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_return_res'>return_res</span> <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_list_invoices'>list_invoices</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>ListInvoiceRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
       <span class='label'>num_max_invoices:</span> <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span><span class='comma'>,</span> <span class='label'>index_offset:</span> <span class='id identifier rubyid_index_offset'>index_offset</span><span class='comma'>,</span>
       <span class='label'>pending_only:</span> <span class='id identifier rubyid_pending_only'>pending_only</span><span class='comma'>,</span> <span class='label'>reversed:</span> <span class='id identifier rubyid_reversed'>reversed</span>
@@ -449,7 +438,7 @@ returned. Backwards pagination is also supported through the Reversed flag.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 01:33:10 2019 by
+  Generated on Thu Apr 18 02:11:03 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

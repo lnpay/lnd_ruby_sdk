@@ -1,7 +1,8 @@
 require: rubocop-performance
-
 AllCops:
   Exclude:
     - lnd_ruby_sdk.gemspec
     - vendor/*
     - spec/*
+Naming/AccessorMethodName:
+  Enabled: false
