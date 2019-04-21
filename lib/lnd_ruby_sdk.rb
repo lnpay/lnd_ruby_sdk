@@ -9,6 +9,7 @@ require 'lightning/version'
 require 'lightning/stub'
 require 'lightning/node'
 require 'lightning/invoices'
+require 'lightning/channels'
 
 # Default config
 Lightning.configure do |config|

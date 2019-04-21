@@ -75,10 +75,10 @@ connectpeer|
 disconnectpeer|
 listpeers|
 getinfo|0.1.0
-pendingchannels|
-listchannels|
+pendingchannels|0.1.1
+listchannels|0.1.1
 subscribechannelevents|
-closedchannels|
+closedchannels|0.1.1
 openchannelsync|
 openchannel|
 closechannel|
