@@ -14,6 +14,20 @@ module Lightning
       stub.get_info(Lnrpc::GetInfoRequest.new)
     end
 
+    # GetNetworkInfo returns some basic stats about the known channel
+    # graph from the point of view of the node.
+    #
+    # @example Get network info
+    #   Lightning.getnetworkinfo
+    #
+    # @return [Lnrpc::NetworkInfo]
+    # @since 0.1.1
+    def getnetworkinfo
+      stub.get_network_info(
+        Lnrpc::NetworkInfoRequest.new
+      )
+    end
+
     # Getnodeinfo returns the latest advertised, aggregated, and authenticated
     # channel information for the specified node identified by its public key.
     #

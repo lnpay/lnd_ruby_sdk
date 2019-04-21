@@ -98,7 +98,7 @@ describegraph|
 getchaninfo|
 getnodeinfo|0.1.1
 queryroutes|
-getnetworkinfo|
+getnetworkinfo|0.1.1
 stopdaemon|
 subscribechannelgraph|
 debuglevel|
