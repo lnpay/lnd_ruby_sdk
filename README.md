@@ -31,7 +31,7 @@ Or install it yourself as:
 $ gem install lnd_ruby_sdk
 ```
 
-## Configuration 
+## Configuration
 Here's an example of how to configure your app. If you are using this gem with Rails, you may create a new initializer in your `config/initializers` folder named `lightning.rb`
 
 ```ruby
@@ -56,60 +56,60 @@ A good way to start would be by running `rake spec` to check out the list of `Pe
 
 **Method**|**Added to SDK version**
 -----|-----
-genseed| 
-initwallet| 
-unlockwallet| 
-changepassword| 
-walletbalance| 
-channelbalance| 
-gettransactions| 
-estimatefee| 
-sendcoins| 
-listunspent| 
-subscribetransactions| 
-sendmany| 
-newaddress| 
-signmessage| 
-verifymessage| 
-connectpeer| 
-disconnectpeer| 
-listpeers| 
+genseed|
+initwallet|
+unlockwallet|
+changepassword|
+walletbalance|
+channelbalance|
+gettransactions|
+estimatefee|
+sendcoins|
+listunspent|
+subscribetransactions|
+sendmany|
+newaddress|
+signmessage|
+verifymessage|
+connectpeer|
+disconnectpeer|
+listpeers|
 getinfo|0.1.0
-pendingchannels| 
-listchannels| 
-subscribechannelevents| 
-closedchannels| 
-openchannelsync| 
-openchannel| 
-closechannel| 
-abandonchannel| 
-sendpayment| 
-sendpaymentsync| 
-sendtoroute| 
-sendtoroutesync| 
+pendingchannels|
+listchannels|
+subscribechannelevents|
+closedchannels|
+openchannelsync|
+openchannel|
+closechannel|
+abandonchannel|
+sendpayment|
+sendpaymentsync|
+sendtoroute|
+sendtoroutesync|
 addinvoice|0.1.0
 listinvoices|0.1.0
-lookupinvoice| 
-subscribeinvoices| 
+lookupinvoice|
+subscribeinvoices|
 decodepayreq|0.1.0
-listpayments| 
-deleteallpayments| 
-describegraph| 
-getchaninfo| 
-getnodeinfo| 
-queryroutes| 
-getnetworkinfo| 
-stopdaemon| 
-subscribechannelgraph| 
-debuglevel| 
-feereport| 
-updatechannelpolicy| 
-forwardinghistory| 
-exportchannelbackup| 
-exportallchannelbackups| 
-verifychanbackup| 
-restorechannelbackups| 
-subscribechannelbackups| 
+listpayments|
+deleteallpayments|
+describegraph|
+getchaninfo|
+getnodeinfo|0.1.1
+queryroutes|
+getnetworkinfo|
+stopdaemon|
+subscribechannelgraph|
+debuglevel|
+feereport|
+updatechannelpolicy|
+forwardinghistory|
+exportchannelbackup|
+exportallchannelbackups|
+verifychanbackup|
+restorechannelbackups|
+subscribechannelbackups|
 
 
 ## Contributing
