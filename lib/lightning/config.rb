@@ -7,6 +7,7 @@ module Lightning
   # The configure class method stores a Configuration object inside
   # the Lightning module. Anything set from the configure block is
   # an attr_accessor on the Configuration class.
+  #
   # @example Configure your application
   #  Lightning.configure do |config|
   #    config.grcp_host = '127.0.0.1'
@@ -14,6 +15,8 @@ module Lightning
   #    config.macaroon_path = '~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon'
   #    config.certificate_path = '~/.lnd/tls.cert'
   #  end
+  #
+  # @since 0.1.1
   def self.configure
     self.configuration ||= Configuration.new
     yield(configuration)

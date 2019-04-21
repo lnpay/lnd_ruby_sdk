@@ -29,7 +29,7 @@ module Lightning
       )
     end
 
-    # ListChannels returns a description of all the open channels
+    # Listchannels returns a description of all the open channels
     # that this node is a participant in.
     #
     # @example Receive a list of open channels

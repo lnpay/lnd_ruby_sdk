@@ -79,7 +79,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/lightning/node.rb<span class="defines">,<br />
-  lib/lightning/stub.rb,<br /> lib/lightning/config.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/invoices.rb</span>
+  lib/lightning/stub.rb,<br /> lib/lightning/config.rb,<br /> lib/lightning/version.rb,<br /> lib/lightning/channels.rb,<br /> lib/lightning/invoices.rb</span>
 </dd>
   </dl>
   
@@ -208,6 +208,31 @@ node</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#closedchannels-class_method" title="closedchannels (class method)">.<strong>closedchannels</strong>(**args)  &#x21d2; Lnrpc::ClosedChannelsResponse </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closedchannels returns a description of all the closed channels that this
+node was a participant in.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#configure-class_method" title="configure (class method)">.<strong>configure</strong> {|configuration| ... } &#x21d2; Object </a>
     
 
@@ -222,7 +247,10 @@ node</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The configure class method stores a Configuration object inside the
+Lightning module.</p>
+</div></span>
   
 </li>
 
@@ -282,6 +310,81 @@ information concerning the number of open+pending channels.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#getnetworkinfo-class_method" title="getnetworkinfo (class method)">.<strong>getnetworkinfo</strong>  &#x21d2; Lnrpc::NetworkInfo </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Getnetworkinfo returns some basic stats about the known channel graph from
+the point of view of the node.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getnodeinfo-class_method" title="getnodeinfo (class method)">.<strong>getnodeinfo</strong>(pubkey)  &#x21d2; Lnrpc::NodeInfo </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Getnodeinfo returns the latest advertised, aggregated, and authenticated
+channel information for the specified node identified by its public key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#listchannels-class_method" title="listchannels (class method)">.<strong>listchannels</strong>(**args)  &#x21d2; Lnrpc::ListChannelsResponse </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Listchannels returns a description of all the open channels that this node
+is a participant in.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#listinvoices-class_method" title="listinvoices (class method)">.<strong>listinvoices</strong>(**args)  &#x21d2; Lnrpc::ListInvoiceResponse </a>
     
 
@@ -299,6 +402,31 @@ information concerning the number of open+pending channels.</p>
     <span class="summary_desc"><div class='inline'>
 <p>Listinvoices the retrieval of all invoices currently stored within the
 database.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pendingchannels-class_method" title="pendingchannels (class method)">.<strong>pendingchannels</strong>  &#x21d2; Lnrpc::PendingChannelsResponse </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Pendingchannels returns a list of all the channels that are currently
+considered “pending”.</p>
 </div></span>
   
 </li>
@@ -488,6 +616,22 @@ being used.</p>
     </li>
   
 </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -495,7 +639,6 @@ being used.</p>
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -503,10 +646,11 @@ being used.</p>
 30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addinvoice'>addinvoice</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_amt'>amt</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:amt</span><span class='rbracket'>]</span>
@@ -515,6 +659,209 @@ being used.</p>
 
   <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
     <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_amt'>amt</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="closedchannels-class_method">
+  
+    .<strong>closedchannels</strong>(**args)  &#x21d2; <tt>Lnrpc::ClosedChannelsResponse</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Closedchannels returns a description of all the closed channels that this
+node was a participant in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Receive a list of closed channels</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_closedchannels'>closedchannels</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Receive a list of closed channels</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_closedchannels'>closedchannels</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>**args</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:cooperative</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:local_force</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:remote_force</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:breach</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:funding_canceled</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:abandoned</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::ClosedChannelsResponse</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/channels.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_closedchannels'>closedchannels</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_closed_channels'>closed_channels</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>ClosedChannelsRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='label'>cooperative:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:cooperative</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>local_force:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:local_force</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>remote_force:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:remote_force</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>breach:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:breach</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>funding_canceled:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:funding_canceled</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>abandoned:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:abandoned</span><span class='rbracket'>]</span>
+    <span class='rparen'>)</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -534,11 +881,32 @@ being used.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>The configure class method stores a Configuration object inside the
+Lightning module. Anything set from the configure block is an attr_accessor
+on the Configuration class.</p>
+
 
   </div>
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Configure your application</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_grcp_host'>grcp_host</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_grcp_port'>grcp_port</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>10009</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_macaroon_path'>macaroon_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_certificate_path'>certificate_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~/.lnd/tls.cert</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
 <p class="tag_title">Yields:</p>
 <ul class="yield">
   
@@ -552,6 +920,22 @@ being used.</p>
     </li>
   
 </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -559,13 +943,13 @@ being used.</p>
       <pre class="lines">
 
 
-7
-8
-9
-10</pre>
+20
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/config.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/config.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="Lightning/Configuration.html" title="Lightning::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -642,6 +1026,22 @@ payment request.</p>
     </li>
   
 </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -649,13 +1049,13 @@ payment request.</p>
       <pre class="lines">
 
 
-45
-46
 47
-48</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decodepayreq'>decodepayreq</span><span class='lparen'>(</span><span class='id identifier rubyid_pay_req'>pay_req</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>pay_req:</span> <span class='id identifier rubyid_pay_req'>pay_req</span> <span class='rbrace'>}</span>
@@ -712,6 +1112,22 @@ information concerning the number of open+pending channels.</p>
     </li>
   
 </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -719,15 +1135,379 @@ information concerning the number of open+pending channels.</p>
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/node.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/node.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_getinfo'>getinfo</span>
   <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_get_info'>get_info</span><span class='lparen'>(</span><span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>GetInfoRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getnetworkinfo-class_method">
+  
+    .<strong>getnetworkinfo</strong>  &#x21d2; <tt>Lnrpc::NetworkInfo</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Getnetworkinfo returns some basic stats about the known channel graph from
+the point of view of the node.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Get network info</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getnetworkinfo'>getnetworkinfo</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::NetworkInfo</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/node.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_getnetworkinfo'>getnetworkinfo</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_get_network_info'>get_network_info</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>NetworkInfoRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="getnodeinfo-class_method">
+  
+    .<strong>getnodeinfo</strong>(pubkey)  &#x21d2; <tt>Lnrpc::NodeInfo</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Getnodeinfo returns the latest advertised, aggregated, and authenticated
+channel information for the specified node identified by its public key.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Get node information from a pubkey</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getnodeinfo'>getnodeinfo</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>030c3...c14f</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>The</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>public key of the node you want get info from</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::NodeInfo</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/node.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_getnodeinfo'>getnodeinfo</span><span class='lparen'>(</span><span class='id identifier rubyid_pubkey'>pubkey</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_get_node_info'>get_node_info</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>NodeInfoRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>pub_key:</span> <span class='id identifier rubyid_pubkey'>pubkey</span><span class='rparen'>)</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="listchannels-class_method">
+  
+    .<strong>listchannels</strong>(**args)  &#x21d2; <tt>Lnrpc::ListChannelsResponse</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Listchannels returns a description of all the open channels that this node
+is a participant in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Receive a list of open channels</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_listchannels'>listchannels</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>**args</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:active_only</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:inactive_only</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:public_only</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:private_only</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::ListChannelsResponse</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/channels.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_listchannels'>listchannels</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_list_channels'>list_channels</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>ListChannelsRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='label'>active_only:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:active_only</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>inactive_only:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:inactive_only</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>public_only:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:public_only</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>private_only:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:private_only</span><span class='rbracket'>]</span>
+    <span class='rparen'>)</span>
+  <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -884,6 +1664,22 @@ specified index offset. This can be used to paginate backwards.</p>
     </li>
   
 </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.0</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -891,9 +1687,6 @@ specified index offset. This can be used to paginate backwards.</p>
       <pre class="lines">
 
 
-82
-83
-84
 85
 86
 87
@@ -903,10 +1696,13 @@ specified index offset. This can be used to paginate backwards.</p>
 91
 92
 93
-94</pre>
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_listinvoices'>listinvoices</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
@@ -926,12 +1722,101 @@ specified index offset. This can be used to paginate backwards.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="pendingchannels-class_method">
+  
+    .<strong>pendingchannels</strong>  &#x21d2; <tt>Lnrpc::PendingChannelsResponse</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Pendingchannels returns a list of all the channels that are currently
+considered “pending”. A channel is pending if it has finished the funding
+workflow and is waiting for confirmations for the funding txn, or is in the
+process of closure, either initiated cooperatively or non- cooperatively.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Receive a list of pending channels</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pendingchannels'>pendingchannels</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Lnrpc::PendingChannelsResponse</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/channels.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pendingchannels'>pendingchannels</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_pending_channels'>pending_channels</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>PendingChannelsRequest</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 18 17:58:37 2019 by
+  Generated on Sun Apr 21 14:23:56 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

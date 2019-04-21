@@ -14,7 +14,7 @@ module Lightning
       stub.get_info(Lnrpc::GetInfoRequest.new)
     end
 
-    # GetNetworkInfo returns some basic stats about the known channel
+    # Getnetworkinfo returns some basic stats about the known channel
     # graph from the point of view of the node.
     #
     # @example Get network info
@@ -31,7 +31,7 @@ module Lightning
     # Getnodeinfo returns the latest advertised, aggregated, and authenticated
     # channel information for the specified node identified by its public key.
     #
-    # @param [String] pubkey The 33-byte hex-encoded compressed public of the target node
+    # @param [String] The public key of the node you want get info from
     # @example Get node information from a pubkey
     #   Lightning.getnodeinfo("030c3...c14f")
     #

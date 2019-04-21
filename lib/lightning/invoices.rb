@@ -22,6 +22,7 @@ module Lightning
     #   Lightning.addinvoice(amt: 500, memo: '1x Cappuccino')
     #
     # @return [Lnrpc::AddInvoiceResponse]
+    # @since 0.1.0
     def addinvoice(**args)
       amt = args[:amt]
       expiry = args[:expiry]
@@ -42,6 +43,7 @@ module Lightning
     #   Lightning.decodepayreq("lnbc5u1pwt0...qxht38d")
     #
     # @return [Lnrpc::PayReq]
+    # @since 0.1.0
     def decodepayreq(pay_req)
       opts = { pay_req: pay_req }
       stub.decode_pay_req(Lnrpc::PayReqString.new(opts))
@@ -79,6 +81,7 @@ module Lightning
     #   Lightning.listinvoices
     #
     # @return [Lnrpc::ListInvoiceResponse]
+    # @since 0.1.0
     def listinvoices(**args)
       num_max_invoices = args[:num_max_invoices]
       index_offset = args[:index_offset]
