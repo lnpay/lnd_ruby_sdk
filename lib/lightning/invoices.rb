@@ -6,7 +6,7 @@ module Lightning
     # parameters or providing an amount of 0. These invoices allow the payee
     # to specify the amount of satoshis they wish to send.
     #
-    # @option args [Integer] :amt (0)
+    # @option args [Integer] :value (0)
     #   Amount in satoshis
     #
     # @option args [Integer] :expiry (3600)
@@ -19,17 +19,16 @@ module Lightning
     #   payment request if the description_hash field is not being used.
     #
     # @example Create a new invoice
-    #   Lightning.addinvoice(amt: 500, memo: '1x Cappuccino')
+    #   Lightning.addinvoice(value: 500, memo: '1x Cappuccino')
     #
     # @return [Lnrpc::AddInvoiceResponse]
     # @since 0.1.0
     def addinvoice(**args)
-      amt = args[:amt]
-      expiry = args[:expiry]
-      memo = args[:memo]
-
       stub.add_invoice(
-        Lnrpc::Invoice.new(value: amt, expiry: expiry, memo: memo)
+        Lnrpc::Invoice.new(
+          value: args[:value], expiry: args[:expiry],
+          memo: args[:memo]
+        )
       )
     end
 

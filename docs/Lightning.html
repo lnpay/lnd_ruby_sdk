@@ -519,7 +519,7 @@ satoshis they wish to send.</p>
 <p>Create a new invoice</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_addinvoice'>addinvoice</span><span class='lparen'>(</span><span class='label'>amt:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="Lightning (module)">Lightning</a></span></span><span class='period'>.</span><span class='id identifier rubyid_addinvoice'>addinvoice</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='int'>500</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1x Cappuccino</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -550,7 +550,7 @@ satoshis they wish to send.</p>
     <ul class="option">
       
         <li>
-          <span class="name">:amt</span>
+          <span class="name">:value</span>
           <span class="type">(<tt>Integer</tt>)</span>
           <span class="default">
             
@@ -646,19 +646,17 @@ being used.</p>
 30
 31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addinvoice'>addinvoice</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_amt'>amt</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:amt</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_expiry'>expiry</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:expiry</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_memo'>memo</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:memo</span><span class='rbracket'>]</span>
-
   <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_add_invoice'>add_invoice</span><span class='lparen'>(</span>
-    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>value:</span> <span class='id identifier rubyid_amt'>amt</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_expiry'>expiry</span><span class='comma'>,</span> <span class='label'>memo:</span> <span class='id identifier rubyid_memo'>memo</span><span class='rparen'>)</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>Invoice</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='label'>value:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>expiry:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:expiry</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>memo:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:memo</span><span class='rbracket'>]</span>
+    <span class='rparen'>)</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1049,13 +1047,13 @@ payment request.</p>
       <pre class="lines">
 
 
+46
 47
 48
-49
-50</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decodepayreq'>decodepayreq</span><span class='lparen'>(</span><span class='id identifier rubyid_pay_req'>pay_req</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>pay_req:</span> <span class='id identifier rubyid_pay_req'>pay_req</span> <span class='rbrace'>}</span>
@@ -1687,6 +1685,7 @@ specified index offset. This can be used to paginate backwards.</p>
       <pre class="lines">
 
 
+84
 85
 86
 87
@@ -1698,11 +1697,10 @@ specified index offset. This can be used to paginate backwards.</p>
 93
 94
 95
-96
-97</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_listinvoices'>listinvoices</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_num_max_invoices'>num_max_invoices</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:num_max_invoices</span><span class='rbracket'>]</span>
@@ -1816,7 +1814,7 @@ process of closure, either initiated cooperatively or non- cooperatively.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Apr 21 14:23:56 2019 by
+  Generated on Mon Apr 22 00:49:10 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>

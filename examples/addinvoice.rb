@@ -7,8 +7,8 @@ Lightning.configure do |config|
   config.certificate_path = '~/.lnd/tls.cert'
 end
 
-# Send request to LND
-response = Lightning.addinvoice(amt: 123)
+# Create a 123 satoshis invoice
+response = Lightning.addinvoice(value: 123)
 
 # Get payment request from response
 payment_request = response.payment_request

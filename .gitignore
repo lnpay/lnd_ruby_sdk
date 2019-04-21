@@ -12,3 +12,4 @@
 .DS_Store
 bin/test
 *.gem
+bin/one
