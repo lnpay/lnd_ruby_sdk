@@ -4,9 +4,6 @@ module Lightning
     # Closedchannels returns a description of all the closed channels
     # that this node was a participant in.
     #
-    # @example Receive a list of closed channels
-    #   Lightning.closedchannels
-    #
     # @option args [Boolean] :cooperative (false)
     # @option args [Boolean] :local_force (false)
     # @option args [Boolean] :remote_force (false)
@@ -25,6 +22,26 @@ module Lightning
           cooperative: args[:cooperative], local_force: args[:local_force],
           remote_force: args[:remote_force], breach: args[:breach],
           funding_canceled: args[:funding_canceled], abandoned: args[:abandoned]
+        )
+      )
+    end
+
+    # Getchaninfo returns the latest authenticated network announcement for the
+    # given channel identified by its channel ID: an 8-byte integer which
+    # uniquely identifies the location of transaction's funding output within
+    # the blockchain.
+    #
+    # @param [Integer] chan_id
+    #
+    # @example Get info from a channel ID
+    #   Lightning.getchaninfo(629383545657950209)
+    #
+    # @return [Lnrpc::ChannelEdge]
+    # @since 0.1.1
+    def getchaninfo(chan_id)
+      stub.get_chan_info(
+        Lnrpc::ChanInfoRequest.new(
+          chan_id: chan_id
         )
       )
     end
