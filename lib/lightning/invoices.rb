@@ -94,5 +94,40 @@ module Lightning
         )
       )
     end
+
+    # Subscribeinvoices returns a uni-directional stream (server -> client)
+    # for notifying the client of newly added/settled invoices. The caller can
+    # optionally specify the add_index and/or the settle_index. If the add_index
+    # is specified, then we'll first start by sending add invoice events for all
+    # invoices with an add_index greater than the specified value. If the
+    # settle_index is specified, the next, we'll send out all settle events for
+    # invoices with a settle_index greater than the specified value. One or both
+    # of these fields can be set. If no fields are set, then we'll only send out
+    # the latest add/settle events.
+    #
+    # @option args [Integer] :add_index (0)
+    #   If specified (non-zero), then we'll first start by sending out
+    #   notifications for all added indexes with an add_index greater than
+    #   this value. This allows callers to catch up on any events they missed
+    #   while they weren't connected to the streaming RPC.
+    #
+    # @option args [Integer] :settle_index (0)
+    #   If specified (non-zero), then we'll first start by sending out
+    #   notifications for all settled indexes with an settle_index greater
+    #   than this value. This allows callers to catch up on any events they
+    #   missed while they weren't connected to the streaming RPC.
+    #
+    # @return [Array<Lnrpc::Invoice>] - stream
+    # @since 0.1.1
+    def subscribeinvoices(**args)
+      stub.subscribe_invoices(
+        Lnrpc::InvoiceSubscription.new(
+          add_index: args[:add_index],
+          settle_index: args[:settle_index]
+        )
+      ) do |invoice|
+        yield(invoice)
+      end
+    end
   end
 end
