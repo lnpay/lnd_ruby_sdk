@@ -90,7 +90,7 @@ sendtoroutesync|
 addinvoice|0.1.0
 listinvoices|0.1.0
 lookupinvoice|
-subscribeinvoices|
+subscribeinvoices|0.1.1
 decodepayreq|0.1.0
 listpayments|
 deleteallpayments|

@@ -432,6 +432,31 @@ considered “pending”.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscribeinvoices-class_method" title="subscribeinvoices (class method)">.<strong>subscribeinvoices</strong>(**args)  &#x21d2; Array&lt;Lnrpc::Invoice&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Subscribeinvoices returns a uni-directional stream (server -&gt; client)
+for notifying the client of newly added/settled invoices.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -1809,12 +1834,177 @@ process of closure, either initiated cooperatively or non- cooperatively.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="subscribeinvoices-class_method">
+  
+    .<strong>subscribeinvoices</strong>(**args)  &#x21d2; <tt>Array&lt;Lnrpc::Invoice&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Subscribeinvoices returns a uni-directional stream (server -&gt; client)
+for notifying the client of newly added/settled invoices. The caller can
+optionally specify the add_index and/or the settle_index. If the add_index
+is specified, then we&#39;ll first start by sending add invoice events for
+all invoices with an add_index greater than the specified value. If the
+settle_index is specified, the next, we&#39;ll send out all settle events
+for invoices with a settle_index greater than the specified value. One or
+both of these fields can be set. If no fields are set, then we&#39;ll only
+send out the latest add/settle events.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>args</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>**args</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:add_index</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>0</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>If specified (non-zero), then we&#39;ll first start by sending out
+notifications for all added indexes with an add_index greater than this
+value. This allows callers to catch up on any events they missed while they
+weren&#39;t connected to the streaming RPC.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:settle_index</span>
+          <span class="type">(<tt>Integer</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>0</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>If specified (non-zero), then we&#39;ll first start by sending out
+notifications for all settled indexes with an settle_index greater than
+this value. This allows callers to catch up on any events they missed while
+they weren&#39;t connected to the streaming RPC.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Lnrpc::Invoice&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>stream</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>0.1.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/lightning/invoices.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subscribeinvoices'>subscribeinvoices</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stub'>stub</span><span class='period'>.</span><span class='id identifier rubyid_subscribe_invoices'>subscribe_invoices</span><span class='lparen'>(</span>
+    <span class='const'>Lnrpc</span><span class='op'>::</span><span class='const'>InvoiceSubscription</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='label'>add_index:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:add_index</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='label'>settle_index:</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:settle_index</span><span class='rbracket'>]</span>
+    <span class='rparen'>)</span>
+  <span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_invoice'>invoice</span><span class='op'>|</span>
+    <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_invoice'>invoice</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 22 00:49:10 2019 by
+  Generated on Mon Apr 22 12:04:52 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.3.1).
 </div>
