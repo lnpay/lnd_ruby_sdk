@@ -9,7 +9,7 @@ GEM
   specs:
     ast (2.4.0)
     diff-lcs (1.3)
-    google-protobuf (3.7.1-universal-darwin)
+    google-protobuf (3.7.1)
     googleapis-common-protos-types (1.0.4)
       google-protobuf (~> 3.0)
     grpc (1.20.0)
@@ -47,7 +47,7 @@ GEM
       rubocop (>= 0.67.0)
     ruby-progressbar (1.10.0)
     unicode-display_width (1.5.0)
-    yard (0.9.19)
+    yard (0.9.22)
 
 PLATFORMS
   ruby
@@ -59,7 +59,7 @@ DEPENDENCIES
   rspec (~> 3.0)
   rubocop (~> 0.67.2)
   rubocop-performance (~> 1.1, >= 1.1.0)
-  yard (~> 0.9, >= 0.9.11)
+  yard (~> 0.9, >= 0.9.20)
 
 BUNDLED WITH
    1.16.1
